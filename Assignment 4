@@ -1,0 +1,176 @@
+#Anthony Angioli
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+#This is a temporary script file.
+"""
+
+import Convert
+
+import Conversion
+
+testFile=open('S:\\Assignment4\\KnownCriminals.txt')
+content=testFile.readlines()
+numberlines=len(content)
+print(numberlines)   
+for i in range(numberlines):    
+    print (content[i])  
+    splitlines=content[i].split()
+    print(splitlines)
+    print('Firstname is ', splitlines[0])
+    print('Lastname is ', splitlines[1])
+    print('Height is ' , splitlines[2])
+   
+testFile=open('C:\\Users\\aa586973\\Documents\\Assignment4\ReportedCriminals.txt')
+content=testFile.readlines()
+numberlines=len(content)
+print(numberlines)
+for i in range (numberlines):
+    print (content[i])
+
+outfile=open('S:\\Assignment4\output.txt','w+')
+outfile.writelines('baseball\n')
+outfile.writelines('football')
+
+def convertToInches(a):
+    print(a)
+    b=a.split('\'')
+    feet=int(b[0])
+    print(b)
+    print('b[1]=',b[1])
+    print('now split b[1]')
+    c=b[1].split('\"')
+    print(c)
+    inches=feet*12+int(c[0]);
+    return inches
+
+numberlines=len(content)
+print(numberlines)
+
+for x in content:
+    splitlines=x.split()
+    print(x)
+    print(splitlines[0])
+    
+outfile.close()
+
+'''
+def convertToInches(a):
+    print(a)
+    b=a.split('\'')
+    feet=int(b[0])
+    print(b)
+    print('b[1]=',b[1])
+    print('now split b[1]')
+    c=b[1].split('\"')
+    print(c)
+    inches=feet*12+int(c[0]);
+    return inches
+'''
+
+#
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec 10 19:34:58 2018
+
+@author: aa586973
+"""
+
+import AnthonyAngioli
+
+fileReported=open('C:\\Users\\aa586973\\Documents\\Assignment4\ReportedCriminals.txt')
+
+for lineReported in fileReported.readlines():
+    filekKnown=open('C:\\Users\\aa586973\\Documents\\Assignment4\\KnownCriminals.txt')
+    
+    minDistance=100000000.;
+    for lineKnown in testFile.readlines():
+        wordsLineKnown=lineKnown.split()
+        wordsLineReported=lineReported.split()
+        
+        height1=int(wordsLineKnown[2])
+        weight1=int(wordsLineKnown[3])
+        height2=int(wordsLineReported[1])
+        weight2=int(wordsLineReported[2])
+        
+        distance=AnthonyAngioli.distance(height1, weight1, height2, weight2)
+    
+        if distance <minDistance:
+            minDistance=distance
+            matchFirstName=wordsLineKnown[0];
+            matchLastName=wordsLineKnow[1];
+            matchHeight=height1
+            matchWeight=weight1
+            line=wordsLineReported[0]+' '+str(height2)+' ' +str(weight2)+' '+wordsLineKnown[1]+ str(height1)+' ' + str(weight1)
+        
+
+
+
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec 10 19:25:48 2018
+
+@author: aa586973
+"""
+
+import math; 
+
+def convertInches(inches):
+    parts=inches.split('\'')
+    feet=int(parts[0])
+    parts=parts[1].split('\'')
+    inches=int(parts[0])
+    return 12*feet+inches
+
+def distance(x1, y1, x2, y2):
+    return math.sqrt((x1-x2)**2+(y1-y2)**2)
+
+    
+    # -*- coding: utf-8 -*-
+"""
+Created on Mon Dec 10 20:46:39 2018
+
+@author: aa586973
+"""
+
+def convertToInches(a):
+    print(a)
+    b=a.split('\'')
+    feet=int(b[0])
+    print(b)
+    print('b[1]=',b[1])
+    print('now split b[1]')
+    c=b[1].split('\"')
+    print(c)
+    inches=feet*12+int(c[0]);
+    return inches
+    
+    
+    
+    # -*- coding: utf-8 -*-
+"""
+Created on Mon Dec 17 14:32:18 2018
+
+@author: aa586973
+"""
+
+import AnthonyAngioli
+import graphics
+from graphics import *
+
+def euclidian(x1, x2, y2):
+    win=GraphWin("My Window", 500, 500)
+    
+
+
+    
+import math
+import numpy
+
+x1 = splitlines[1]
+y1 = splitlines[2]
+x2 = splitlines[3]
+distance = math.sqrt(sum([(a - b) ** 2 for a, b in zip(x, y)]))
+print("Euclidean distance from x to y: ",distance)
+ 
